@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         paths: {
             scss: './scss',
-            css: './css'
+            css: './assets/css'
         },
         buildType: 'Build',
         pkg: grunt.file.readJSON('package.json'),
@@ -29,13 +29,13 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    {expand: true, src: ['css/**'], dest: 'build/'},
-                    {expand: true, src: ['fonts/**'], dest: 'build/'},
-                    {expand: true, src: ['images/**'], dest: 'build/'},
-                    {expand: true, src: ['js/**'], dest: 'build/'},
+                    {expand: true, src: ['assets/css/**'], dest: 'build/'},
+                    {expand: true, src: ['assets/fonts/**'], dest: 'build/'},
+                    {expand: true, src: ['assets/images/**'], dest: 'build/'},
+                    {expand: true, src: ['assets/js/**'], dest: 'build/'},
                     {expand: true, src: ['partials/**'], dest: 'build/'},
                     {expand: true, src: ['scss/**'], dest: 'build/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store'], dest: 'build/'},
+                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store'], dest: 'build/'}
                 ]
             },
             archive: {
@@ -69,7 +69,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    //grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['sass:admin']);
